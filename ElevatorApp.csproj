@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+  <!-- Config and SQL script are copied next to the .exe and found through relative paths -->
+  <ItemGroup>
+    <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Database\ElevatorDB.sql" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Assets\lift.jpg" CopyToOutputDirectory="PreserveNewest" />
+    <EmbeddedResource Include="Assets\lift.jpg" LogicalName="lift.jpg" />
+  </ItemGroup>
+
+</Project>
